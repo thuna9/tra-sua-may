@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trà Sữa Mây - Liên hệ & đặt hàng</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- (Bài 2b) Dán đoạn mã GTM phần <head> vào ngay dưới dòng này -->
+
+</head>
+<body>
+  <!-- (Bài 2b) Dán đoạn mã GTM phần <body> vào ngay dưới dòng này -->
+
+  <header>
+    <div class="logo">🧋 Trà Sữa Mây</div>
+    <nav>
+      <a href="index.html">Trang chủ</a>
+      <a href="menu.html">Menu</a>
+      <a href="lien-he.html">Liên hệ</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Liên hệ &amp; đặt hàng</h1>
+    <p>Để lại thông tin, quán sẽ gọi lại xác nhận đơn. (Website thực hành: form không gửi dữ liệu đi đâu cả.)</p>
+
+    <form id="form-dat-hang">
+      <div>
+        <label for="ten">Tên của bạn</label>
+        <input id="ten" name="ten" type="text" required>
+      </div>
+      <div>
+        <label for="mon">Món muốn đặt</label>
+        <input id="mon" name="mon" type="text" placeholder="Ví dụ: Trà sữa trân châu">
+      </div>
+      <div>
+        <label for="ghi-chu">Ghi chú</label>
+        <textarea id="ghi-chu" name="ghi-chu" rows="3"></textarea>
+      </div>
+      <button class="btn" type="submit">Gửi đơn</button>
+    </form>
+
+    <div class="thanks" id="cam-on">Cảm ơn bạn! Quán sẽ gọi lại trong ít phút.</div>
+  </main>
+
+  <footer>
+    Trà Sữa Mây · Website thực hành học GA4 &amp; GTM ·
+    <a id="link-facebook" href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a>
+  </footer>
+
+  <script>
+    // Điền sẵn tên món nếu khách bấm "Đặt ngay" từ trang Menu
+    var mon = new URLSearchParams(window.location.search).get("mon");
+    if (mon) {
+      document.getElementById("mon").value = mon.replace(/-/g, " ");
+    }
+
+    // Website thực hành: không gửi form đi đâu, chỉ hiện lời cảm ơn
+    document.getElementById("form-dat-hang").addEventListener("submit", function (e) {
+      e.preventDefault();
+      this.style.display = "none";
+      document.getElementById("cam-on").style.display = "block";
+    });
+  </script>
+</body>
+</html>

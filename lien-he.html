@@ -65,6 +65,13 @@
       e.preventDefault();
       this.style.display = "none";
       document.getElementById("cam-on").style.display = "block";
+            // Báo cho GTM: vừa có một đơn hợp lệ gửi thành công
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "generate_lead",
+        form_name: "dat_hang",
+        item_name: document.getElementById("mon").value
+      });
     });
   </script>
 </body>
